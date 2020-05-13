@@ -1,4 +1,4 @@
-let win = $(window),
+let win = $(window);
 foo = $('#typer');
 foo.typer(['Développeur PHP', 'Développeur FullStack JavaScript']);
 
@@ -11,7 +11,7 @@ $(function(){
         return false;
     });
 
-    $('body').scrollspy({ target: '#nav' });
+    // $('body').scrollspy({ target: '#nav' });
 
     /* NAVBAR SCROLL */
     $('#nav').hide();

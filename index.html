@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +19,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body id="top" data-spy="scroll" data-target="#nav" data-offset="0">
+<body id="top" data-spy="scroll" data-target="#nav" data-offset="60">
 
     <!--HEADER-->
     <header>
@@ -40,6 +41,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scrollTo" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scrollTo" href="#contact">Contact</a>
                 </li>
             </ul>
           </div>
@@ -105,9 +109,9 @@
                         </table>
                         <div class="social-network">
                             <ul class="social-icon-list d-flex justify-content-center">
-                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fab fa-github-square"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/in/sylvain-naudy-338937164/"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a target="_blank" href="https://github.com/Silvayn"><i class="fab fa-github-square"></i></a></li>
+                                <li><a target="_blank" href="https://twitter.com/NaudySylvain"><i class="fab fa-twitter-square"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -499,30 +503,87 @@
     </section>
     <!--END PORTFOLIO-->
 
-    
+    <!-- CONTACT FORM -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="main-title">
+                    <h2>04. Contact</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-lg-offset-1 d-flex flex-column align-items-center">
+                    <form id="contact-form" class="contact-form col-lg-12" method="POST" action="" role="form">
+                        <div id="res"></div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="textbox-register">
+                                    <input type="text" name="nom" id="nom" placeholder="Nom" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="textbox-register">
+                                    <input type="text" name="prenom" id="prenom" placeholder="Prénom" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="textbox-register">
+                                    <input type="email" name="mail" id="mail" placeholder="Email" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="textbox-register">
+                                    <input type="text" name="sujet" id="sujet" placeholder="Sujet" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row d-flex flex-row justify-content-center">
+                            <textarea class="form-control" name="message" id="message" rows="2" placeholder="Message" required></textarea>
+                        </div>
+                        <div class="form-group d-flex flex-row justify-content-center">
+                            <input class="btn btn_custom_submit" type="submit" value="Envoyer">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END CONTACT FORM -->
+
+    <!-- GAME OVER -->
+    <section id="game-over" class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 game-over-card">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <p class="game-over-left">Game Over</p>
+                        </div>
+                        <div class="col-md-6 text-center game-over-banner">
+                            <div class="game-over-right">Insert <a class="js-scrollTo" href="#top"><img src="./images/coin.gif" alt="Coin"></a><br>
+                                to try again</div>
+                            <!-- <button href="#top" class="btn-game-over js-scrollTo">Press<br>to play</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- GAME OVER END -->
 
     <!--FOOTER-->
     <footer>
         <div class="container">
-            <div class="row d-flex justify-content-end">
-                <a id="back-to-top" class="js-scrollTo" href="#top">
-                    <div class="back-top d-flex justify-content-center align-items-center">
-                        <i class="fas fa-arrow-up"></i>
-                    </div>
-                </a>
-            </div>
             <div class="row">
-                <div class="col-md-6 col-12">
-                    <!--<p>Make With <i class="fas fa-heart"></i> by SN</p>-->
-                </div>
-                <div class="col-md-6 col-12">
-                    <div class="social-icon">
-                        <ul class="social-icon-list d-flex justify-content-around">
-                            <a class="social-icon-link" href="#"><li><i class="fab fa-linkedin"></i></li></a>
-                            <a class="social-icon-link" href="#"><li><i class="fab fa-github-square"></i></li></a>
-                            <a class="social-icon-link" href="#"><li><i class="fab fa-twitter-square"></i></li></a>
-                        </ul>
-                    </div>
+                <div class="col-12 footer d-flex justify-content-around">
+                    <p class="align-items-center">Make With <i class="fas fa-heart"></i> by Sylvain N.</p>
+                    <a id="back-to-top" class="js-scrollTo" href="#top">
+                        <div class="back-top d-flex justify-content-center align-items-center">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

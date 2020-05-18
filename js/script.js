@@ -1,8 +1,34 @@
 let win = $(window);
 foo = $('#typer');
-foo.typer(['Développeur PHP', 'Développeur FullStack JavaScript']);
+foo.typer(['Développeur Front-End', 'Développeur FullStack JavaScript', 'Développeur PHP']);
 
 $(function(){
+
+    /* AJAX CONTACT FROM */
+    $('#contact-form').submit(function(e){
+        e.preventDefault();
+        let postData = $('#contact-form').serialize();
+
+        $.ajax({
+            method: "POST",
+            url: "./contact.php",
+            data: postData,
+            dataType: 'json',
+            error: function(){
+                $('#contact-form').prepend('Erreur lors du chargment de la page !');
+            },
+            success: function(result) {
+
+                if(result.isSuccess){
+                    $('#contact-form').prepend('<div class="success">Le message à bien été envoyé. Merci de m\'avoir contacté !</div>');
+                    $('#contact-form')[0].reset();
+                } else {
+                    $('#contact-form').prepend().html(result.error);
+                }
+            }
+        });
+    });
+
     /* SMOOTH SCROLL */
     $('.js-scrollTo').on('click', function() { // Au clic sur un élément
         let page = $(this).attr('href'); // Page cible

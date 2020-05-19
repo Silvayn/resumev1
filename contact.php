@@ -3,7 +3,6 @@
     ini_set("display_errors", 1);
 
     $array = array("firstName" => "", "name" => "", "mail" => "", "subject" => "", "message" => "", "success" => "", "error" => "", "isSuccess" => false);
-    $emailTo = 'sylvain.naudy@gmail.com';
 
     if($_SERVER["REQUEST_METHOD"] === "POST") {
         $array["firstName"] = inputVerify($_POST["prenom"]);
@@ -22,13 +21,20 @@
             $array["isSuccess"] = false;
         }else {
             $array["success"] = 'Le message à bien été envoyé. Merci de m\'avoir contacté !';
-            $emailText = 'Nom: ' . $array["name"] . ' Prénom: ' . $array["firstName"] . '\n ' . 'Email : ' . $array["mail"] . '\n ' . 'Sujet : ' . $array["subject"] . '\n ' . 'Message : ' . $array["message"] . '\n ';
+            /*$emailText = 'Nom: ' . $array["name"] . ' Prénom: ' . $array["firstName"] . '\n ' . 'Email : ' . $array["mail"] . '\n ' . 'Sujet : ' . $array["subject"] . '\n ' . 'Message : ' . $array["message"] . '\n ';*/
         }
 
         if($array["isSuccess"]) {
+            //Config
+            $to      = 'sylvain.naudy@gmail.com';
+            $sujet =  . $array["firstName"] . ' ' . $array["name"] . ' ' . ' : ' . $array["subject"];
+            $headers = array(
+                'From' => $array["mail"],
+                'Reply-To' => $array["mail"],
+                'X-Mailer' => 'PHP/' . phpversion()
+            );
             //Envoie email
-            $headers = 'From: ' . $array["firstName"] . ' ' . $array["name"] . '<' . $array["mail"] . '>\r\nReply-To: ' . $array["mail"];
-            mail($emailTo, 'Message du Portfolio', $emailText, $headers);
+            mail($to, $sujet, $array["message"], $headers);
         }
 
         echo json_encode($array);
